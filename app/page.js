@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Upload, Calendar, ArrowRight, ArrowLeft, Camera, Sun, User } from 'lucide-react';
+import { Sparkles, Upload, Calendar, ArrowRight, ArrowLeft, Camera, Sun, User, Download } from 'lucide-react';
 
 export default function AstroPage() {
   // --- CONFIGURATION ---
@@ -34,12 +34,12 @@ export default function AstroPage() {
 
     // 2. Check other required fields using native form validity
     // We scan the form to see if the required fields in Step 2 are empty
+    // NOTE: We only strictly require DOB and Email now.
     const dob = document.querySelector('input[name="DOB"]').value;
-    const time = document.querySelector('input[name="Time_of_Birth"]').value;
     const email = document.querySelector('input[name="email"]').value;
 
-    if (!dob || !time || !email) {
-      alert("Please fill in all your birth details and email.");
+    if (!dob || !email) {
+      alert("Please fill in your Name, Date of Birth, and Email.");
       return;
     }
 
@@ -137,8 +137,7 @@ export default function AstroPage() {
                 <Sparkles size={32} color="#ffd700" style={{ margin: '0 auto 15px' }} />
                 <h3>Grand Destiny Combo</h3>
                 <p>Complete Palmistry + 2026 Forecast + Love Insight.</p>
-                <p>With special personalized guidance and bonus. 
-                </p>
+                <p>With special personalized guidance and bonus.</p>
                 <h2 style={{ color: '#ffd700' }}>₹51</h2>
              </div>
           </div>
@@ -184,7 +183,12 @@ export default function AstroPage() {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 <div><label>Date of Birth</label><input type="date" name="DOB" required /></div>
-                <div><label>Time of Birth</label><input type="time" name="Time_of_Birth" required /></div>
+                
+                {/* OPTIONAL TIME */}
+                <div>
+                  <label>Time of Birth <small style={{color:'#aaa', fontWeight:'normal'}}>(Optional)</small></label>
+                  <input type="time" name="Time_of_Birth" />
+                </div>
               </div>
               
               <div style={{ marginTop: '20px' }}>
@@ -192,9 +196,10 @@ export default function AstroPage() {
                 <input type="email" name="email" required placeholder="stardust@universe.com" />
               </div>
               
+              {/* OPTIONAL PHONE */}
               <div style={{ marginTop: '20px' }}>
-                <label>Mobile Number(optional)</label>
-                <input type="tel" name="Phone" />
+                <label>Mobile Number <small style={{color:'#aaa', fontWeight:'normal'}}>(Optional)</small></label>
+                <input type="tel" name="Phone" placeholder="Optional" />
               </div>
 
               <div style={{ marginTop: '30px', border: '1px dashed #ffd700', padding: '20px', borderRadius: '10px', textAlign: 'center' }}>
@@ -214,7 +219,6 @@ export default function AstroPage() {
                 <p style={{ fontSize: '0.9rem', color: '#aaa', marginTop: '5px' }}>Required for reading</p>
               </div>
 
-              {/* Updated Button calls handleProceedToPayment */}
               <button type="button" className="mystic-btn" onClick={handleProceedToPayment}>
                 Proceed to Offering <ArrowRight size={18} style={{ display: 'inline', marginLeft: '10px' }}/>
               </button>
@@ -232,8 +236,32 @@ export default function AstroPage() {
                 Offering amount: <span style={{ color: '#ffd700', fontWeight: 'bold' }}>{selectedService.price}</span>
               </p>
 
-              <div style={{ background: '#fff', padding: '20px', borderRadius: '15px', display: 'inline-block', margin: '30px 0' }}>
-                <img src="qr.jpeg" alt="Payment QR" width={400} height={400} style={{ display: 'block' }} /> 
+              <div style={{ background: '#fff', padding: '20px', borderRadius: '15px', display: 'inline-block', marginBottom: '15px' }}>
+                <img src="qr.jpeg" alt="Payment QR" width={250} height={250} style={{ display: 'block' }} /> 
+              </div>
+
+              {/* DOWNLOAD QR BUTTON */}
+              <div style={{ marginBottom: '30px' }}>
+                <a 
+                  href="/qr.jpeg" 
+                  download="Astro_Payment_QR" 
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '8px',
+                    color: '#ffd700', 
+                    textDecoration: 'none', 
+                    border: '1px solid #ffd700',
+                    padding: '8px 15px',
+                    borderRadius: '20px',
+                    fontSize: '0.9rem',
+                    transition: '0.3s'
+                  }}
+                  onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(255,215,0,0.1)'; }}
+                  onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                >
+                  <Download size={16} /> Download QR Code
+                </a>
               </div>
 
               <div style={{ textAlign: 'left', maxWidth: '400px', margin: '0 auto' }}>
