@@ -193,7 +193,7 @@ export default function AstroPage() {
               </div>
               
               <div style={{ marginTop: '20px' }}>
-                <label>Mobile Number</label>
+                <label>Mobile Number(optional)</label>
                 <input type="tel" name="Phone" />
               </div>
 
