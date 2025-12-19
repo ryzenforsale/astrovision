@@ -119,6 +119,7 @@ export default function AstroPage() {
              <div className="glass-panel" onClick={() => handleServiceSelect({title: "Palmistry Reading", price: "₹11"})} style={{ padding: '30px', cursor: 'pointer', textAlign: 'center', minHeight: '350px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <Upload size={32} color="#ffd700" style={{ margin: '0 auto 15px' }} />
                 <h3>Palmistry Reading</h3>
+                <h5 style={{ marginTop: '1px' }}>WHAT YOU WILL GET:</h5>
                 <p>Life Line Analysis</p>
                 <p>Career Insights</p>
                 <p>Heart Line Reading</p>
@@ -128,6 +129,7 @@ export default function AstroPage() {
              <div className="glass-panel" onClick={() => handleServiceSelect({title: "2026 Prophecy", price: "₹11"})} style={{ padding: '30px', cursor: 'pointer', textAlign: 'center', minHeight: '350px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <Calendar size={32} color="#ffd700" style={{ margin: '0 auto 15px' }} />
                 <h3>2026 Prophecy</h3>
+                <h5 style={{ marginTop: '1px' }}>WHAT YOU WILL GET:</h5>
                 <p>Comprehensive astrological predictions for your entire year 2026.</p>
                 <p>Career & Finance, Love & Relationships</p>
                 <h2 style={{ color: '#ffd700' }}>₹11</h2>
@@ -136,6 +138,7 @@ export default function AstroPage() {
              <div className="glass-panel" onClick={() => handleServiceSelect({title: "Grand Destiny Combo", price: "₹51"})} style={{ padding: '30px', cursor: 'pointer', textAlign: 'center', minHeight: '350px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <Sparkles size={32} color="#ffd700" style={{ margin: '0 auto 15px' }} />
                 <h3>Grand Destiny Combo</h3>
+                <h5 style={{ marginTop: '1px' }}>WHAT YOU WILL GET:</h5>
                 <p>Complete Palmistry + 2026 Forecast + Love Insight.</p>
                 <p>With special personalized guidance and bonus.</p>
                 <h2 style={{ color: '#ffd700' }}>₹51</h2>
@@ -193,7 +196,7 @@ export default function AstroPage() {
               
               <div style={{ marginTop: '20px' }}>
                 <label>Email Address</label>
-                <input type="email" name="email" required placeholder="stardust@universe.com" />
+                <input type="email" name="email" required placeholder="You will receive updates here" />
               </div>
               
               {/* OPTIONAL PHONE */}
@@ -263,6 +266,7 @@ export default function AstroPage() {
                   <Download size={16} /> Download QR Code
                 </a>
               </div>
+              <p style={{ fontSize: '0.9rem', color: '#aaa', marginTop: '5px' }}>After payment CONFIRMATION, You will receive updates on your email within 10 min.</p>
 
               <div style={{ textAlign: 'left', maxWidth: '400px', margin: '0 auto' }}>
                 <label>Upload Payment Screenshot</label>
